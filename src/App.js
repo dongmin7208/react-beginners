@@ -1,10 +1,31 @@
 import Button from "./Button";
+import styles from "./App.modules.css";
+import { useState } from "react";
 
 function App() {
+    const [toDo, setToDo] = useState("");
+    const [toDos, setToDos] = useState("");
+    const onChange = (event) => setToDo(event.target.value);
+    const onSubmit = (event) => {
+        event.preventDefalut();
+        if (toDo === "") {
+            return;
+        }
+        setToDo("");
+        setToDos(currentArray => [toDo, ])
+        console.log(toDo);
+    };
     return (
         <div>
-            <h1>welcome dondon!</h1>
-            <Button text={"Continue"} />
+            <form onSubmit={onSubmit}>
+                <input
+                    onChange={onChange}
+                    value={toDo}
+                    type="text"
+                    placeholder="text input plz"
+                />
+                <button>Add To do</button>
+            </form>
         </div>
     );
 }

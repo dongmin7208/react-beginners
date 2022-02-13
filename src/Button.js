@@ -1,18 +1,7 @@
 import PropTypes from "prop-types";
-
+import styles from "./Button.module.css";
 function Button({ text }) {
-    return (
-        <button
-            style={{
-                backgroundColor: "red",
-                color: "white",
-                padding: "25px",
-                borderRadius: "50px",
-            }}
-        >
-            {text}
-        </button>
-    );
+    return <button className={styles.btn}>{text}</button>;
 }
 
 Button.propTypes = {
